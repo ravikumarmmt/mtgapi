@@ -10,7 +10,6 @@ before_script:
   - mysql -e 'create database mtgapp;'
   - composer self-update
   - composer install --no-interaction
-  - php artisan key:generate
   - php artisan migrate:install --env=testing --no-interaction -vvv
  
 script:
