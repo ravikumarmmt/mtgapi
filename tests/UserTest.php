@@ -34,6 +34,7 @@ class UserTest extends TestCase
         $password = 'test@123';
         $response = $this->call('POST', '/login', ['name' => $name, 'email' => 'ravik@enqos.com', 'password' => 'test@123']);
         //$this->assertEquals(200, $response->getStatusCode());
+		echo "Testing";
         $data = json_decode($response->getContent(), true);
         print_r($data);die;
         $this->assertEquals($data['data']['name'], $name);
