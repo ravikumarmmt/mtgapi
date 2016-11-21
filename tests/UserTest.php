@@ -28,7 +28,22 @@ class UserTest extends TestCase
         $user_found->delete();
         $this->notSeeInDatabase('users', ['email' => 'unittest@test.com']);
     }
-   
+    public function testUserNameIsRequired(){
+        $response = $this->call('POST', '/register', ['name' => '', 'email' => 'mtgtest@gmail.com', 'password' => 'test123']);
+        $data = json_decode($response->getContent(), true);
+		echo "<pre>";print_r($data);die;
+        $this->assertEquals($data['data']['name'], 'The name field is required.');
+    }
+    public function testUserEmailIsRequired(){
+        $response = $this->call('POST', '/register', ['name' => 'mtgtest', 'email' => '', 'password' => 'test123']);
+        $data = json_decode($response->getContent(), true);
+        $this->assertEquals($data['data']['email'], 'The email field is required.');
+    }
+    public function testUserPasswordIsRequired(){
+        $response = $this->call('POST', '/register', ['name' => 'mtgtest', 'email' => 'mtgtest@gmail.com', 'password' => '']);
+        $data = json_decode($response->getContent(), true);
+        $this->assertEquals($data['data']['password'], 'The password field is required.');
+    }   
     
 }
 
