@@ -34,7 +34,8 @@ class AuthServiceProvider extends ServiceProvider
             if ($request->input('api_token')) {
                 //return User::where('api_token', $request->input('api_token'))->first();
                 //return User::where('api_token', '=', $request->input('api_token'))->whereRaw('expire_at > DATE_SUB(NOW(), INTERVAL 1 HOUR)')->first();
-                return User::where('api_token', '=', $request->input('api_token'))->where('id', $request->input('user_id'))->first();
+                //return User::where('api_token', '=', $request->input('api_token'))->where('id', $request->input('user_id'))->first();
+                return User::where('api_token', '=', $request->input('api_token')) ->first();
             }
         });
     }

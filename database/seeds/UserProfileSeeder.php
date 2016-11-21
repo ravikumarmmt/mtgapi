@@ -1,5 +1,5 @@
 <?php
-use App\PreferredPace;
+use App\UserProfile;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
@@ -10,11 +10,19 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;  
 
-class PreferredPaceSeeder extends Seeder
+
+class UserProfileSeeder extends Seeder
 {
     public function run()
     {
-        $data = [['name' => 'Recommended'],['name' => 'Rapid']]; 
-        DB::table('preferred_pace')->insert($data);
+        $user = new UserProfile;
+        $user->user_id = 1;
+        $user->gender = 'M';
+        $user->birthday = '1984-12-10';
+        $user->height = 171;
+        $user->weight = 86;
+        $user->activity_level = 2;
+        $user->exercise_days = 4;
+        $user->save();
     }
 } 

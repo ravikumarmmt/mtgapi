@@ -35,8 +35,8 @@ class DashboardController extends Controller
      */
     public function store(Request $request){
         $this->validateRequest($request);
-        $weeklyupdate = WeeklyUpdate::find($request->input('id'));
-        if($weeklyupdate){ // For update
+       // $weeklyupdate = WeeklyUpdate::find($request->input('id'));
+      //  if($weeklyupdate){ // For update
        // if($weeklyupdate){ //For Insert
             $weeklyupdateinsert = WeeklyUpdate::create([
                 'user_id' => $request->input('user_id'),
@@ -45,14 +45,14 @@ class DashboardController extends Controller
             if($weeklyupdateinsert)
                 return response()->json(['status' => 1, 'message' => 'Data inserted successfully', 'data' => $weeklyupdateinsert]);
             return response()->json(['status' => 1, 'message' => 'Data was not inserted'], 422);
-        } else {
-            $weeklyupdate->user_id = $request->input('user_id');
-            $weeklyupdate->weight = $request->input('weight');
-            $weeklyupdate->save();
-            if($weeklyupdate)
-                return response()->json(['status' => 1, 'message' => 'User weight has been updated', 'data' => $weeklyupdateinsert]);
-            return response()->json(['status' => 1, 'message' => 'Data was not updated'], 422);
-        }
+//        } else {
+//            $weeklyupdate->user_id = $request->input('user_id');
+//            $weeklyupdate->weight = $request->input('weight');
+//            $weeklyupdate->save();
+//            if($weeklyupdate)
+//                return response()->json(['status' => 1, 'message' => 'User weight has been updated', 'data' => $weeklyupdateinsert]);
+//            return response()->json(['status' => 1, 'message' => 'Data was not updated'], 422);
+//        }
         
     } 
     

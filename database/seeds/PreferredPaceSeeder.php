@@ -1,5 +1,5 @@
 <?php
-use App\PreferredPace;
+use App\Goals;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
@@ -10,11 +10,12 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;  
 
-class PreferredPaceSeeder extends Seeder
+class GoalsTableSeeder extends Seeder
 {
     public function run()
     {
-        $data = [['name' => 'Recommended'],['name' => 'Rapid']]; 
-        DB::table('preferred_pace')->insert($data);
+        //Goals::create(['name' =>]); 
+        $data = [['name' => 'Weight Loss'],['name' => 'Weight Gain'], ['name' => 'Weight Maintenance'], ['name' => 'Weight Gain']]; 
+        DB::table('goals')->insert($data);
     }
 } 
