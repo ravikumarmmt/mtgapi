@@ -24,7 +24,6 @@ class CreateUsersProfileTable extends Migration
             $table->integer('activity_level')->length(11)->unsigned();
             $table->integer('exercise_days')->length(11)->unsigned();
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

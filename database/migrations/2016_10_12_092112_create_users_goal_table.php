@@ -21,7 +21,6 @@ class CreateUsersGoalTable extends Migration
             $table->tinyInteger('weight_preferred_pace_id')->length(4);
             $table->tinyInteger('dietary_requirements_id')->length(4);
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
