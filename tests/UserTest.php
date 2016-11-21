@@ -30,6 +30,7 @@ class UserTest extends TestCase
     }
     public function testUserNameIsRequired(){
         $response = $this->call('POST', '/register', ['name' => '', 'email' => 'mtgtest@gmail.com', 'password' => 'test123']);
+		print_r($response);die;
 		$data = json_decode($response->getContent(), true);
 		print_r($data);die;
 		$this->assertEquals($data['data']['name'], 'The name field is required.');
