@@ -20,6 +20,7 @@ class CreateUsersFoodPreferenceTable extends Migration
             $table->mediumInteger('subcategory_id')->length(5)->unsigned();
             $table->tinyInteger('checked')->length(2)->unsigned()->default(0);
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
