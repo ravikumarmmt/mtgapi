@@ -108,9 +108,8 @@ trait ProvidesConvenienceMethods
         foreach($errors as $key => $val){
           $validator_data[$key] = $val[0]; 
         }
-		
-      //  $validator_data = ['status' => 0, 'data' => $validator_data];
-       return $validator_data;
+        $validator_data = ['status' => 0, 'data' => $validator_data];
+        return $validator_data;
         
     }
 
