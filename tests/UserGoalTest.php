@@ -31,7 +31,7 @@ class UserGoalTest extends TestCase
         $data = json_decode($response->getContent(), true);
         $user_id = $data['data']['id'];
         $api_token = $data['data']['api_token'];
-        $response = $this->call('POST', '/savegoal', ['user_id' => 2531, 'goals_id' => '', 'goal_weight' => 134, 'weight_preferred_pace_id' => 3,
+        $response = $this->call('POST', '/savegoal', ['user_id' => 2, 'goals_id' => '', 'goal_weight' => 134, 'weight_preferred_pace_id' => 3,
                                 'dietary_requirements_id' => 2, 'api_token' => $api_token]);
         $this->assertEquals(200, $response->getStatusCode());
         $data = json_decode($response->getContent(), true);
@@ -44,7 +44,7 @@ class UserGoalTest extends TestCase
         $data = json_decode($response->getContent(), true);
         $user_id = $data['data']['id'];
         $api_token = $data['data']['api_token'];
-        $response = $this->call('POST', '/savegoal', ['user_id' => 2531, 'goals_id' => 1, 'goal_weight' => '', 'weight_preferred_pace_id' => 3,
+        $response = $this->call('POST', '/savegoal', ['user_id' => 2, 'goals_id' => 1, 'goal_weight' => '', 'weight_preferred_pace_id' => 3,
                                 'dietary_requirements_id' => 2, 'api_token' => $api_token]);
         $this->assertEquals(200, $response->getStatusCode());
         $data = json_decode($response->getContent(), true);
@@ -57,7 +57,7 @@ class UserGoalTest extends TestCase
         $data = json_decode($response->getContent(), true);
         $user_id = $data['data']['id'];
         $api_token = $data['data']['api_token'];
-        $response = $this->call('POST', '/savegoal', ['user_id' => 2531, 'goals_id' => 1, 'goal_weight' => 134, 'weight_preferred_pace_id' => '',
+        $response = $this->call('POST', '/savegoal', ['user_id' => 2, 'goals_id' => 1, 'goal_weight' => 134, 'weight_preferred_pace_id' => '',
                                 'dietary_requirements_id' => 2, 'api_token' => $api_token]);
         $this->assertEquals(200, $response->getStatusCode());
         $data = json_decode($response->getContent(), true);
@@ -70,7 +70,7 @@ class UserGoalTest extends TestCase
         $data = json_decode($response->getContent(), true);
         $user_id = $data['data']['id'];
         $api_token = $data['data']['api_token'];
-        $response = $this->call('POST', '/savegoal', ['user_id' => 2531, 'goals_id' => 1, 'goal_weight' => 134, 'weight_preferred_pace_id' => 3,
+        $response = $this->call('POST', '/savegoal', ['user_id' => 2, 'goals_id' => 1, 'goal_weight' => 134, 'weight_preferred_pace_id' => 3,
                                 'dietary_requirements_id' => '', 'api_token' => $api_token]);
         $this->assertEquals(200, $response->getStatusCode());
         $data = json_decode($response->getContent(), true);
