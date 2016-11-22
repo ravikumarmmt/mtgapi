@@ -11,6 +11,7 @@ class UserGoalTest extends TestCase
 {
 //    public function testUserGoalCreate(){
 //        $userprofile = UserGoal::create([ 
+//                                'id'=> 3,
 //                                'user_id' => 2,
 //                                'goals_id' => 2,
 //                                'goal_weight' => 75,
@@ -21,9 +22,9 @@ class UserGoalTest extends TestCase
 //    }
 //    
 //    public function testUserGoalDelete(){
-//        $user_found = UserGoal::where('user_id', 2);
+//        $user_found = UserGoal::where('id', 3);
 //        $user_found->delete();
-//        $this->notSeeInDatabase('users_goal', ['user_id' => 2]);
+//        $this->notSeeInDatabase('users_goal', ['id' => 3]);
 //    }
     public function testUserGoalIdRequired(){
         $response = $this->call('POST', '/login', ['name' => 'ravi', 'email' => 'ravik@enqos.com', 'password' => 'test@123']);
