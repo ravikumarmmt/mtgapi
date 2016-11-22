@@ -8,10 +8,11 @@ php:
 before_script:
   - cp .env.travis .env
   - mysql -e 'create database mtgapp;'
+#  - composer self-update
   - composer install --no-interaction
   - php artisan migrate
   - php artisan db:seed
-  - sudo chmod -R 777 /var/www/mtgapi/vendor/
+  - sudo chmod -R 777 vendor/
  
 script:
    - vendor/bin/phpunit
