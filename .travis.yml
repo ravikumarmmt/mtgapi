@@ -11,6 +11,7 @@ before_script:
   - composer install --no-interaction
   - php artisan migrate
   - php artisan db:seed
+  - sudo chmod -R 777 /var/www/mtgapi/vendor/
  
 script:
    - vendor/bin/phpunit
