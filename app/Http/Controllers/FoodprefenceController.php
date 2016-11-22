@@ -39,10 +39,10 @@ class FoodprefenceController extends Controller
     public function index(){
 //        $posts = Cache::remember('posts', 60, function()
 //        {
-          // $food_preferences = FoodPreferenceCategory::with('FoodPreferenceSubCategory')->get();
+          $food_preferences = FoodPreferenceCategory::with('FoodPreferenceSubCategory')->get();
 //        });
 
-        //return response()->json(['status' => 1, 'data'=>$food_preferences]);    
+        return response()->json(['status' => 1, 'data'=>$food_preferences]);    
         
     }//End of index
 

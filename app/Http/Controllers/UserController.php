@@ -173,9 +173,7 @@ class UserController extends Controller
 
         $this->validate($request, $rules);
     }//End of validateRequest     
-    public function sampleData(Request $request){
-       echo "I am Here";
-    }
+
     public function down()
     {
         Schema::dropIfExists('users_goal');
