@@ -123,8 +123,6 @@ class UserController extends Controller
     */
     public function login(Request $request){
         $this->validateLoginRequest($request);
-		$user = User::all();
-		return $user;
         $user = $this->user->where('email', '=', $request->input('email'))->first();
         if(!$user)
             return response()->json(['status' => 0,'data' => "Mail id is not exist!"]); 
