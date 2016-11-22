@@ -8,23 +8,23 @@ use Illuminate\Support\Facades\Crypt;
 
 class UserProfileTest extends TestCase
 {
-    public function testUserProfileCreate(){
-        $userprofile = UserProfile::create([ 
-                                'user_id' => 2531,
-                                'gender' => 'M',
-                                'birthday' => '1990-12-12',
-                                'height'=>  171,
-                                'weight'=>  76,
-                                'activity_level'=> 5,
-                                'exercise_days'=>  3,
-                            ]);
-         $this->seeInDatabase('users_profile', ['user_id' => 2531]);
-    }     
-    public function testUserProfileDelete(){
-        $user_found = UserProfile::where('user_id', 2531);
-        $user_found->delete();
-        $this->notSeeInDatabase('users_profile', ['user_id' => 2531]);
-    }   
+//    public function testUserProfileCreate(){
+//        $userprofile = UserProfile::create([ 
+//                                'user_id' => 2531,
+//                                'gender' => 'M',
+//                                'birthday' => '1990-12-12',
+//                                'height'=>  171,
+//                                'weight'=>  76,
+//                                'activity_level'=> 5,
+//                                'exercise_days'=>  3,
+//                            ]);
+//         $this->seeInDatabase('users_profile', ['user_id' => 2531]);
+//    }     
+//    public function testUserProfileDelete(){
+//        $user_found = UserProfile::where('user_id', 2531);
+//        $user_found->delete();
+//        $this->notSeeInDatabase('users_profile', ['user_id' => 2531]);
+//    }   
     
     public function testToGetUserProfile(){
         $response = $this->call('POST', '/login', ['name' => 'ravi', 'email' => 'ravik@enqos.com', 'password' => 'test@123']);

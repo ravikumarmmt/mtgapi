@@ -9,22 +9,22 @@ use Illuminate\Support\Facades\Crypt;
 
 class UserGoalTest extends TestCase
 {
-    public function testUserGoalCreate(){
-        $userprofile = UserGoal::create([ 
-                                'user_id' => 2531,
-                                'goals_id' => 2,
-                                'goal_weight' => 75,
-                                'weight_preferred_pace_id'=>  1,
-                                'dietary_requirements_id'=>  3,
-                            ]);
-         $this->seeInDatabase('users_goal', ['user_id' => 2531]);
-    }
-    
-    public function testUserGoalDelete(){
-        $user_found = UserGoal::where('user_id', 2531);
-        $user_found->delete();
-        $this->notSeeInDatabase('users_goal', ['user_id' => 2531]);
-    }
+//    public function testUserGoalCreate(){
+//        $userprofile = UserGoal::create([ 
+//                                'user_id' => 2,
+//                                'goals_id' => 2,
+//                                'goal_weight' => 75,
+//                                'weight_preferred_pace_id'=>  1,
+//                                'dietary_requirements_id'=>  3,
+//                            ]);
+//         $this->seeInDatabase('users_goal', ['user_id' => 2]);
+//    }
+//    
+//    public function testUserGoalDelete(){
+//        $user_found = UserGoal::where('user_id', 2);
+//        $user_found->delete();
+//        $this->notSeeInDatabase('users_goal', ['user_id' => 2]);
+//    }
     public function testUserGoalIdRequired(){
         $response = $this->call('POST', '/login', ['name' => 'ravi', 'email' => 'ravik@enqos.com', 'password' => 'test@123']);
         $this->assertEquals(200, $response->getStatusCode());
