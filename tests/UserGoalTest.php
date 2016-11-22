@@ -114,36 +114,36 @@ class UserGoalTest extends TestCase
         $this->assertEquals($data['data']['user_id'], 'The user id must be a number.');        
     }    
     
-    /** @test **/
-    public function testToGetUserGoal(){
-        $response = $this->call('POST', '/login', ['name' => 'ravi', 'email' => 'ravik@enqos.com', 'password' => 'test@123']);
-        $this->assertEquals(200, $response->getStatusCode());
-        $data = json_decode($response->getContent(), true);
-        $user_id = $data['data']['id'];
-        $api_token = $data['data']['api_token'];
-        $this->post('/getgoal', ['api_token' =>$api_token, 'user_id' => $user_id])
-                ->seeStatusCode(200)
-                ->seeJson([
-                  'isupdated' => 1 //here we can check any or all key value are equal or not  
-                ]);
-    }
-    
-    /** @test **/
-//    public function testToGetUserGoalData(){
+//    /** @test **/
+//    public function testToGetUserGoal(){
 //        $response = $this->call('POST', '/login', ['name' => 'ravi', 'email' => 'ravik@enqos.com', 'password' => 'test@123']);
 //        $this->assertEquals(200, $response->getStatusCode());
 //        $data = json_decode($response->getContent(), true);
 //        $user_id = $data['data']['id'];
 //        $api_token = $data['data']['api_token'];
-//        $response = $this->call('POST', '/getgoal', ['api_token' =>$api_token, 'user_id' => $user_id]);
-//        $data = json_decode($response->getContent(), true);
-//        $this->assertArrayHasKey('goals', $data);
-//        $this->assertArrayHasKey('dietryrequirements', $data);
-//        $this->assertArrayHasKey('preferredpace', $data);
-//        $this->assertNotNUll($data['goals']);
-//        $this->assertNotNUll($data['dietryrequirements']);
-//        $this->assertNotNUll($data['preferredpace']);
-//        $this->assertNotNUll($data['data']);
-//    }    
+//        $this->post('/getgoal', ['api_token' =>$api_token, 'user_id' => $user_id])
+//                ->seeStatusCode(200)
+//                ->seeJson([
+//                  'isupdated' => 1 //here we can check any or all key value are equal or not  
+//                ]);
+//    }
+    
+    /** @test **/
+    public function testToGetUserGoalData(){
+        $response = $this->call('POST', '/login', ['name' => 'ravi', 'email' => 'ravik@enqos.com', 'password' => 'test@123']);
+        $this->assertEquals(200, $response->getStatusCode());
+        $data = json_decode($response->getContent(), true);
+        $user_id = $data['data']['id'];
+        $api_token = $data['data']['api_token'];
+        $response = $this->call('POST', '/getgoal', ['api_token' =>$api_token, 'user_id' => $user_id]);
+        $data = json_decode($response->getContent(), true);
+        $this->assertArrayHasKey('goals', $data);
+        $this->assertArrayHasKey('dietryrequirements', $data);
+        $this->assertArrayHasKey('preferredpace', $data);
+        $this->assertNotNUll($data['goals']);
+        $this->assertNotNUll($data['dietryrequirements']);
+        $this->assertNotNUll($data['preferredpace']);
+        $this->assertNotNUll($data['data']);
+    }    
     
 }
