@@ -15,7 +15,7 @@ class CreateUsersGoalTable extends Migration
     {
         Schema::create('users_goal', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->length(11);
+            $table->integer('user_id')->length(11)->unsigned();
             $table->tinyInteger('goals_id')->length(4);
             $table->decimal('goal_weight', 10, 2);
             $table->tinyInteger('weight_preferred_pace_id')->length(4);
