@@ -129,21 +129,21 @@ class UserGoalTest extends TestCase
     }
     
     /** @test **/
-    public function testToGetUserGoalData(){
-        $response = $this->call('POST', '/login', ['name' => 'ravi', 'email' => 'ravik@enqos.com', 'password' => 'test@123']);
-        $this->assertEquals(200, $response->getStatusCode());
-        $data = json_decode($response->getContent(), true);
-        $user_id = $data['data']['id'];
-        $api_token = $data['data']['api_token'];
-        $response = $this->call('POST', '/getgoal', ['api_token' =>$api_token, 'user_id' => $user_id]);
-        $data = json_decode($response->getContent(), true);
-        $this->assertArrayHasKey('goals', $data);
-        $this->assertArrayHasKey('dietryrequirements', $data);
-        $this->assertArrayHasKey('preferredpace', $data);
-        $this->assertNotNUll($data['goals']);
-        $this->assertNotNUll($data['dietryrequirements']);
-        $this->assertNotNUll($data['preferredpace']);
-        $this->assertNotNUll($data['data']);
-    }    
+//    public function testToGetUserGoalData(){
+//        $response = $this->call('POST', '/login', ['name' => 'ravi', 'email' => 'ravik@enqos.com', 'password' => 'test@123']);
+//        $this->assertEquals(200, $response->getStatusCode());
+//        $data = json_decode($response->getContent(), true);
+//        $user_id = $data['data']['id'];
+//        $api_token = $data['data']['api_token'];
+//        $response = $this->call('POST', '/getgoal', ['api_token' =>$api_token, 'user_id' => $user_id]);
+//        $data = json_decode($response->getContent(), true);
+//        $this->assertArrayHasKey('goals', $data);
+//        $this->assertArrayHasKey('dietryrequirements', $data);
+//        $this->assertArrayHasKey('preferredpace', $data);
+//        $this->assertNotNUll($data['goals']);
+//        $this->assertNotNUll($data['dietryrequirements']);
+//        $this->assertNotNUll($data['preferredpace']);
+//        $this->assertNotNUll($data['data']);
+//    }    
     
 }

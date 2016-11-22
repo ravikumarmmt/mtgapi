@@ -158,7 +158,7 @@ class FoodprefenceTest extends TestCase
         $response = $this->call('POST', '/login', ['name' => 'ravi', 'email' => 'ravik@enqos.com', 'password' => 'test@123']);
         $this->assertEquals(200, $response->getStatusCode());
         $data = json_decode($response->getContent(), true);
-        $user_id = 2;
+        $user_id = 1;
         $api_token = $data['data']['api_token'];
         $sub_category = json_decode('[{"id":1,"checked":0},{"id":2,"checked":0},{"id":3,"checked":1},{"id":4,"checked":0},{"id":5,"checked":0},{"id":6,"checked":0},{"id":7,"checked":0},{"id":8,"checked":0},{"id":9,"checked":0},{"id":10,"checked":0},{"id":11,"checked":1},{"id":12,"checked":0}]', true);
         $sub_category = json_encode($sub_category);
